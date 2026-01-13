@@ -1,27 +1,27 @@
 using UnityEngine;
-using UnityEngine.Windows;
 
-public class Tank_Player : MonoBehaviour
+public class TankMotor : MonoBehaviour
 {
-    public float speed = 1f;
+    public float Movespeed = 1f;
+    public float Turnspeed = 1f;
 
-    Player input;
+    private ITankControl controller;
+
     private void Awake()
     {
-        input = new Player();
-    }
-    private void OnEnable()
-    {
-        input.MyPlayerInput.Enable();
+        controller = GetComponent<ITankControl>();
+        if (controller == null)
+        {
+            Debug.LogError("ITankControl 컴포넌트가 없습니다!");
+        }
     }
 
-    private void OnDisable()
-    {
-        input.MyPlayerInput.Disable();
-    }
     void Update()
     {
-        Vector2 move = input.MyPlayerInput.Move.ReadValue<Vector2>();
+        if (controller == null)
+            return;
+
+        Vector2 move = controller.Move;
 
         #region 실제 움직임
 
@@ -29,8 +29,6 @@ public class Tank_Player : MonoBehaviour
         Moving_Turn(move.x * 15f);
 
         #endregion
-
-
     }
 
 
@@ -39,7 +37,7 @@ public class Tank_Player : MonoBehaviour
         if (Mathf.Abs(_fValue) < 0.01f) return;
 
         transform.Translate(
-            Vector3.forward * _fValue * speed * Time.deltaTime,
+            Vector3.forward * _fValue * Movespeed * Time.deltaTime,
             Space.Self
         );
     }
@@ -49,9 +47,8 @@ public class Tank_Player : MonoBehaviour
         if (Mathf.Abs(_fValue) < 0.01f) return;
 
         transform.Rotate(
-            Vector3.up * _fValue * speed * Time.deltaTime,
+            Vector3.up * _fValue * Turnspeed * Time.deltaTime,
             Space.Self
         );
     }
-
 }

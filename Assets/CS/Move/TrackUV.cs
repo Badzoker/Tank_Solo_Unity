@@ -1,20 +1,17 @@
-using System;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
-public class Test : MonoBehaviour
+public class TrackUV : MonoBehaviour
 {
-    public Renderer rend;
+    Renderer rend;
     public float speed = 1f;
     Vector2 uv;
     public bool isLeft = false;
-    
-
     Player input;
 
     private void Awake()
     {
         input = new Player();
+        rend = GetComponent<Renderer>();
     }
     private void OnEnable()
     {
@@ -49,7 +46,7 @@ public class Test : MonoBehaviour
         }
 
         uv.y -= trackSpeed * speed * Time.deltaTime;
-        
+
         rend.material.SetTextureOffset("_BaseMap", uv); // 뒤로 가는 궤도 모션
         #endregion
 
