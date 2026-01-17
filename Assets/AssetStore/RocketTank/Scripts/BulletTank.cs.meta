@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 32cc6e3515664d249959f57754ecc91b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151014
+  packageName: Desert Land
+  packageVersion: 1.0
+  assetPath: Assets/TowerDefence_Vsquad/Scripts/BulletTank.cs
+  uploadId: 339379

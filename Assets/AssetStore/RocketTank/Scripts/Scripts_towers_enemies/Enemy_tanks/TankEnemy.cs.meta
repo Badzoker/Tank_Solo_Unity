@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d1d26a6c586af1047ac4595e645b3a10
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 151014
+  packageName: Desert Land
+  packageVersion: 1.0
+  assetPath: Assets/TowerDefence_Vsquad/Scripts/Scripts_towers_enemies/Enemy_tanks/TankEnemy.cs
+  uploadId: 339379
